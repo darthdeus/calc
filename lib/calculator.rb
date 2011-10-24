@@ -3,7 +3,7 @@ class Calculator
   
   def initialize(first, second, op)
     raise ArgumentError unless first.integer? && second.integer?
-    raise ArgumentError unless %w{+ - *}.include?(op)    
+    raise ArgumentError unless %w{+ - *}.include?(op)
 
     @first = first
     @second = second

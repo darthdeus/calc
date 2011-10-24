@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+2#!/usr/bin/env ruby
 
 print "Zadejte 1. cislo: "
 prvni_input = gets.chomp
