@@ -20,19 +20,16 @@ describe Calculator do
   context "calculating" do
     it "should add given numbers" do
       calc = Calculator.new(1, 1, "+")
-      calc.add
       calc.result.should == 2
     end
     
     it "should substract given numbers" do
       calc = Calculator.new(2, 1, "-")
-      calc.substract
       calc.result.should == 1
     end
     
     it "should multiply given numbers" do
       calc = Calculator.new(2, 4, "*")
-      calc.multiply
       calc.result.should == 8
     end
   end
@@ -44,7 +41,30 @@ describe Calculator do
       
       Calculator.new(1000, 10, "+").output.map(&:length).max.should == 4
     end
+
+    it "should display detailed multiplication" do
+      calc = Calculator.new(10, 10, "*")
+      calc.output[3].to_i.should == 0
+      calc.output[4].to_i.should == 10
+      calc.output.last.to_i.should == 100
+    end
+
+    it "should calculate underline size based on the longest line" do
+      examples = [
+        [10, 10, 3],
+        [100, 10, 4],
+        [10, 100, 4]
+      ]
+      examples.each do |example|
+        Calculator.new(example[0], example[1], "*").total_width.should == example.last  
+      end
+    end
+  end
   
+  context "print output" do
+    it "should align all lines correctly" do
+      
+    end
   end
   
 end
