@@ -23,8 +23,7 @@ case operace
     vysledek = prvni * druhe
     if druhe_input.length > 1
       druhe_input.reverse.each_char.with_index do |char, i|
-        offset = (" " * i)
-        output << (prvni * char.to_i).to_s + offset
+        output << (prvni * char.to_i).to_s + (" " * i)
       end
       output << "-" * (output.map(&:length).max)
     end
