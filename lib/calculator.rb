@@ -2,16 +2,19 @@ class Calculator
   attr_accessor :first, :second, :result, :output
   
   def initialize(first, second, op)
-    raise ArgumentError unless first.integer? && second.integer?
-    raise ArgumentError unless %w{+ - *}.include?(op)
+    raise "Zadejte cislo" unless first.integer? && second.integer?
+    raise "Neplatna operace" unless %w{+ - *}.include?(op)
 
     @first = first
     @second = second
     @op = op
     @output = []
+  end
+
+  def calculate
     @output << @first << (@op.to_s + @second.to_s)
     
-    case op
+    case @op
       when "+" then @result = @first + @second
       when "-" then @result = @first - @second
       when "*" then 
@@ -25,6 +28,7 @@ class Calculator
         end
     end
     @output << @result
+    self # pro zjednoduseni chain callu    
   end
   
   def output
@@ -38,6 +42,4 @@ class Calculator
   def print_output
     output.map { |line| (line =~ /\-/) ? ('-' * total_width) : line.rjust(total_width) }
   end
-  
-  
 end
