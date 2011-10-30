@@ -25,7 +25,9 @@ class Calculator
         if @second.to_s.length > 1
           @output << '-'
           # Iterace pozadu pres druhy citatel pro nasobeni pod sebou
-          @second.to_s.reverse.each_char.with_index do |char, i|
+          # Idealne by to zde slo zjednodusit na @second.to_s.reverse.each_char.with_index,
+          # ale to jak jsem zjistil neni podporovano v 1.8.x
+          @second.to_s.reverse.split("").each_with_index do |char, i|
             @output << (@first * char.to_i).to_s + (' ' * i)
           end          
         end
