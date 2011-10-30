@@ -1,0 +1,11 @@
+Program se spouští přes soubor bin/calc.rb
+
+    ruby bin/calc.rb
+    
+Hlavní funkčnost je umístěna ve třídě Calculator, která je v souboru lib/calculator.rb.
+
+Pro případ že by byl program spouštěn na Ruby 1.8.6 je doplněna metoda Symbol#to_proc,
+která je nadefinována v souboru lib/symbol.rb, viz např. http://pragdave.pragprog.com/pragdave/2005/11/symbolto_proc.html
+
+Soubor Gemfile je potřeba použít pouze při spouštění testů, samotný program gemy
+ani žádné jiné závislosti nevyžaduje.

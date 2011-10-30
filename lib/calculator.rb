@@ -21,12 +21,13 @@ class Calculator
       when "-" then @result = @first - @second
       when "*" then 
         @result = @first * @second
+        # Nasobeni pod sebou ma smysl resit jenom pokud ma druhy citatel vic nez jednu cislici
         if @second.to_s.length > 1
           @output << '-'
+          # Iterace pozadu pres druhy citatel pro nasobeni pod sebou
           @second.to_s.reverse.each_char.with_index do |char, i|
             @output << (@first * char.to_i).to_s + (' ' * i)
-          end
-          
+          end          
         end
     end
     @output << '-'
@@ -34,6 +35,7 @@ class Calculator
     self # pro zjednoduseni chain callu    
   end
   
+  # Pro zjednoduseni zpracovani vysledku, prevede vsechny cisla na stringy
   def output
     @output.map(&:to_s)
   end
