@@ -24,9 +24,10 @@ class Calculator
           @second.to_s.reverse.each_char.with_index do |char, i|
             @output << (@first * char.to_i).to_s + (' ' * i)
           end
-          @output << '-'
+          
         end
     end
+    @output << '-'
     @output << @result
     self # pro zjednoduseni chain callu    
   end
@@ -40,6 +41,10 @@ class Calculator
   end
   
   def print_output
-    output.map { |line| (line =~ /\-/) ? ('-' * total_width) : line.rjust(total_width) }
+    output.map { |line| (line =~ /^\-$/) ? ('-' * total_width) : line.rjust(total_width) }
+  end
+  
+  def print_result
+    puts print_output.join("\n")
   end
 end

@@ -1,10 +1,7 @@
-gem "cucumber"
-gem "aruba"
 gem "rspec"
 
 gem "guard"
 gem "guard-rspec"
-gem "guard-cucumber"
 
 group :darwin do
   gem "growl_notify"

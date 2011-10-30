@@ -60,9 +60,5 @@ describe Calculator do
       end
     end
   end
-  
-  context "print output" do
-    it "should align all lines correctly"
-  end
-  
+    
 end
