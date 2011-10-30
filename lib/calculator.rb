@@ -1,4 +1,4 @@
-class Calculator
+class Calculator  
   attr_accessor :first, :second, :result, :output
   
   def initialize(first, second, op)
@@ -11,6 +11,8 @@ class Calculator
     @output = []
   end
 
+  # Vypocet podle zadanych parametru.
+  # Vraci samotny objekt Calculator pro zjednoduseni chain callu .new(...).calculate
   def calculate
     @output << @first << (@op.to_s + @second.to_s)
     
@@ -36,14 +38,17 @@ class Calculator
     @output.map(&:to_s)
   end
   
+  # Delka nejdelsiho radku
   def total_width
     @total_width ||= output.map(&:length).max
   end
   
+  # Vraci jednotlive radky v poli urcene pro vypsani na vystup
   def print_output
     output.map { |line| (line =~ /^\-$/) ? ('-' * total_width) : line.rjust(total_width) }
   end
   
+  # Vypise kompletni vystup
   def print_result
     puts print_output.join("\n")
   end
